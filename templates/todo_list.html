@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Minhas Tarefas - ActionHub{% endblock %}
+
+{% block content %}
+<div class="tasks-container">
+    <h2>Minhas Tarefas</h2>
+
+    <form method="POST" action="{{ url_for('task_bp.create') }}" class="task-form">
+        <input type="text" name="description" placeholder="Nova tarefa..." required>
+        <select name="priority">
+            <option value="low">Baixa</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">Alta</option>
+        </select>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <div class="tasks-list">
+        {% if tasks %}
+            {% for task in tasks %}
+            <div class="task-item {% if task.completed %}completed{% endif %}">
+                <form method="POST" action="{{ url_for('task_bp.update', task_id=task.id) }}" class="task-update">
+                    <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %} onchange="this.form.submit()">
+                    <input type="text" name="description" value="{{ task.description }}" required>
+                    <select name="priority">
+                        <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Baixa</option>
+                        <option value="normal" {% if task.priority == 'normal' %}selected{% endif %}>Normal</option>
+                        <option value="high" {% if task.priority == 'high' %}selected{% endif %}>Alta</option>
+                    </select>
+                    <button type="submit">Salvar</button>
+                </form>
+                <form method="POST" action="{{ url_for('task_bp.delete', task_id=task.id) }}" class="task-delete">
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-tasks">Nenhuma tarefa cadastrada.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
