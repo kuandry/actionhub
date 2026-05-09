@@ -30,40 +30,53 @@ Baixe o código do projeto para sua máquina.
 
 Abra o terminal
 
-Rode git clone https://github.com/seuusuario/actionhub.git
-
+Rode 
+```
+git clone https://github.com/seuusuario/actionhub.git
+```
 Entre na pasta cd actionhub
 
 2
 Criar ambiente virtual
 Isolar dependências do projeto.
 
-Rode python -m venv venv
+Rode 
+```
+python -m venv venv
+```
 
-Ative com source venv/Scripts/activate (Windows Git Bash)
-
-Ou source venv/bin/activate (Linux/Mac)
-
+Ative com source 
+```
+venv/Scripts/activate (Windows Git Bash)
+```
+Ou 
+```
+source venv/bin/activate (Linux/Mac)
+```
 3
 Instalar dependências
 Instale todas as bibliotecas necessárias.
 
-Com venv ativo, rode pip install -r requirements.txt
-
+Com venv ativo, rode 
+```
+pip install -r requirements.txt
+```
 4
 Inicializar banco de dados
 Crie o banco SQLite com as tabelas.
 
-Rode python init_db.py
-
+Rode 
+```
+python init_db.py
+```
 Verifique se instance/database.db foi criado
 
 5
 Rodar aplicação
 Inicie o servidor Flask.
-
+```
 Rode python app.py
-
+```
 Acesse http://127.0.0.1:5000 no navegador
 
  Funcionalidades
