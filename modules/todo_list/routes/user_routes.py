@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required
+from sqlalchemy.exc import IntegrityError
 from modules.todo_list.services.user_service import (
     create_user,
     list_users,
@@ -35,6 +36,8 @@ def register():
             create_user({"username": username, "password": password})
             flash("Usuário criado com sucesso! Faça login.", "success")
             return redirect(url_for('user_bp.login'))
+        except IntegrityError:
+            flash("Este usuário já existe. Escolha outro nome.", "error")
         except Exception as e:
             flash(f"Erro ao criar usuário: {str(e)}", "error")
     

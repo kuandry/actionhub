@@ -26,6 +26,8 @@ def get_all_tasks(filters=None):
 def update_task(task, data: dict):
     """Atualiza os campos de uma tarefa"""
     for key, value in data.items():
+        if key == "priority" and isinstance(value, str):
+            value = value.lower()
         setattr(task, key, value)
     db.session.commit()
     return task

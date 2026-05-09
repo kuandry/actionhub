@@ -1,3 +1,5 @@
+from core.extensions import db
+from modules.todo_list.schemas.user_schema import UserSchemaPublic, UserSchemaPrivate
 from modules.todo_list.repositorys.user_repository import (
     save_user,
     get_user_by_id,
@@ -6,11 +8,10 @@ from modules.todo_list.repositorys.user_repository import (
     delete_user,
     get_user_by_username
 )
-from modules.todo_list.schemas.user_schema import UserSchemaPublic, UserSchemaPrivate
 import bcrypt
 
 def create_user(data: dict):
-    schema = UserSchemaPrivate()
+    schema = UserSchemaPrivate(session=db.session)  # passa a sessão
     user = schema.load(data)  # valida e cria objeto User
     
     # Hash da senha antes de salvar
