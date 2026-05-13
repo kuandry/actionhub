@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy.exc import IntegrityError
 from modules.todo_list.services.user_service import (
     create_user,
@@ -13,6 +13,10 @@ user_bp = Blueprint("user_bp", __name__)
 
 @user_bp.route("/login", methods=["GET", "POST"])
 def login():
+    # Se o usuário já está logado, manda direto para as tarefas
+    if current_user.is_authenticated:
+        return redirect(url_for('task_bp.list_all'))
+
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -28,6 +32,10 @@ def login():
 
 @user_bp.route("/register", methods=["GET", "POST"])
 def register():
+    # Se o usuário já está logado, manda direto para as tarefas
+    if current_user.is_authenticated:
+        return redirect(url_for('task_bp.list_all'))
+
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")

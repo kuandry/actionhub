@@ -1,0 +1,53 @@
+/* ================================================
+   BASE.CSS — Estilos globais do ActionHub
+   Responsável: [seu nome aqui]
+   Descrição: Estilos que se aplicam a TODAS as
+              páginas do site (body, header, main, footer)
+   ================================================ */
+
+
+/* --------------------------------
+   RESET — Remove estilos padrão do navegador
+   -------------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f1a;
+    font-family: 'Segoe UI', sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+
+/* --------------------------------
+   HEADER — Barra do topo
+   -------------------------------- */
+
+header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+
+/* --------------------------------
+   MAIN — Área de conteúdo central
+   -------------------------------- */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 24px 16px;
+}
