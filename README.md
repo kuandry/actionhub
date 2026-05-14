@@ -32,7 +32,7 @@ Abra o terminal
 
 Rode 
 ```
-git clone https://github.com/seuusuario/actionhub.git
+git clone https://github.com/kuandry/actionhub.git
 ```
 Entre na pasta cd actionhub
 
@@ -45,13 +45,13 @@ Rode
 python -m venv venv
 ```
 
-Ative com source 
+Ative com source no windows
 ```
-venv/Scripts/activate (Windows Git Bash)
+source venv/Scripts/activate
 ```
-Ou 
+Ou para linux ou mac
 ```
-source venv/bin/activate (Linux/Mac)
+source venv/bin/activate
 ```
 3
 Instalar dependências
@@ -75,7 +75,7 @@ Verifique se instance/database.db foi criado
 Rodar aplicação
 Inicie o servidor Flask.
 ```
-Rode python app.py
+python app.py
 ```
 Acesse http://127.0.0.1:5000 no navegador
 
