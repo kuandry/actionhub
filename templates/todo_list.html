@@ -7,36 +7,76 @@
     <h2>Minhas Tarefas</h2>
 
     <form method="POST" action="{{ url_for('task_bp.create') }}" class="task-form">
-        <input type="text" name="description" placeholder="Nova tarefa..." required>
+        <input type="text" name="description" placeholder="Adicionar nova tarefa..." required>
         <select name="priority">
             <option value="low">Baixa</option>
             <option value="normal" selected>Normal</option>
             <option value="high">Alta</option>
         </select>
-        <button type="submit">Adicionar</button>
+        <button type="submit" class="btn-add">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Adicionar
+        </button>
     </form>
 
     <div class="tasks-list">
         {% if tasks %}
-            {% for task in tasks %}
-            <div class="task-item {% if task.completed %}completed{% endif %}">
-                <form method="POST" action="{{ url_for('task_bp.update', task_id=task.id) }}" class="task-update">
-                    <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %} onchange="this.form.submit()">
-                    <input type="text" name="description" value="{{ task.description }}" required>
-                    <select name="priority">
-                        <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Baixa</option>
-                        <option value="normal" {% if task.priority == 'normal' %}selected{% endif %}>Normal</option>
-                        <option value="high" {% if task.priority == 'high' %}selected{% endif %}>Alta</option>
+        {% for task in tasks %}
+        <div class="task-item {% if task.completed %}completed{% endif %}">
+            <form method="POST" action="{{ url_for('task_bp.update', task_id=task.id) }}" class="task-update">
+                <div class="task-checkbox">
+                    <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %}
+                        onchange="this.form.submit()">
+                </div>
+
+                <div class="task-details">
+                    <input type="text" name="description" value="{{ task.description }}" required
+                        class="task-desc-input" title="Aperte Enter para salvar alterações">
+                </div>
+
+                <div class="task-actions">
+                    <span class="priority-badge priority-{{ task.priority }}">
+                        {{ 'Baixa' if task.priority == 'low' else 'Normal' if task.priority == 'normal' else 'Alta' }}
+                    </span>
+                    <select name="priority" class="priority-select" onchange="this.form.submit()">
+                        <option value="low" {% if task.priority=='low' %}selected{% endif %}>Baixa</option>
+                        <option value="normal" {% if task.priority=='normal' %}selected{% endif %}>Normal</option>
+                        <option value="high" {% if task.priority=='high' %}selected{% endif %}>Alta</option>
                     </select>
-                    <button type="submit">Salvar</button>
-                </form>
-                <form method="POST" action="{{ url_for('task_bp.delete', task_id=task.id) }}" class="task-delete">
-                    <button type="submit">Excluir</button>
-                </form>
-            </div>
-            {% endfor %}
+
+                    <button type="button" class="icon-btn btn-edit"
+                        onclick="this.closest('.task-update').querySelector('.task-desc-input').focus()"
+                        title="Editar tarefa">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </button>
+
+                    <button type="submit" class="btn-save" style="display: none;">Salvar</button>
+                </div>
+            </form>
+
+            <form method="POST" action="{{ url_for('task_bp.delete', task_id=task.id) }}" class="task-delete">
+                <button type="submit" class="icon-btn btn-delete" title="Excluir tarefa">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        {% endfor %}
         {% else %}
-            <p class="no-tasks">Nenhuma tarefa cadastrada.</p>
+        <p class="no-tasks">Nenhuma tarefa cadastrada. Adicione uma acima!</p>
         {% endif %}
     </div>
 </div>
