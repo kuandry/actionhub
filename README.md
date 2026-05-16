@@ -69,6 +69,31 @@ python app.py
 
 Acesse [http://127.0.0.1:5000](http://127.0.0.1:5000) no navegador.
 
+## Gerenciamento do Banco de Dados
+
+### Visualizar Dados do Banco
+
+Para visualizar os dados armazenados no banco SQLite, você pode usar o script `list_db.py`:
+
+```bash
+python list_db.py
+```
+
+Este script exibe:
+
+Um menu iterativo onde é possivel consultar os dados do banco e até mesmo fazer consultar livre SQL
+
+### Resetar o Banco de Dados
+
+Se precisar limpar todos os dados e recomeçar:
+
+```bash
+rm instance/database.db
+python init_db.py
+```
+
+⚠️ **Atenção:** Isso apagará todos os usuários e tarefas cadastrados.
+
 ## Funcionalidades
 
 - ✅ Cadastro e login de usuários
