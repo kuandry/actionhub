@@ -104,19 +104,19 @@ Banco SQLite local para persistência
     <td align="center">
       <a href="https://github.com/natamdossantos6-gif">
         <img src="https://github.com/natamdossantos6-gif.png" width="100px;" alt="Natan dos Santos"/><br>
-        <sub><b>Natan dos Santos</b></sub>
+        <sub><b>Natam dos Santos Silva</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/Feehf">
         <img src="https://github.com/Feehf.png" width="100px;" alt="Fernanda Feitosa"/><br>
-        <sub><b>Fernanda Feitosa</b></sub>
+        <sub><b>Fernanda Feitosa Simões Santos</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/felphs1003">
         <img src="https://github.com/felphs1003.png" width="100px;" alt="Luis Felype"/><br>
-        <sub><b>Luis Felype</b></sub>
+        <sub><b>Luis Fylipe Lopes da Silva</b></sub>
       </a>
     </td>
     <td align="center">
@@ -130,13 +130,13 @@ Banco SQLite local para persistência
     <td align="center">
       <a href="https://github.com/kaua-menezes-dev">
         <img src="https://github.com/kaua-menezes-dev.png" width="100px;" alt="Kawan Menezes"/><br>
-        <sub><b>Kauã Menezes</b></sub>
+        <sub><b>Kauã Victor Ferreira Menezes</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/nicholasborba">
         <img src="https://github.com/nicholasborba.png" width="100px;" alt="Nicholas Borba"/><br>
-        <sub><b>Nicholas Borba</b></sub>
+        <sub><b>Nicholas Borba Batista</b></sub>
       </a>
     </td>
   </tr>
