@@ -1,95 +1,84 @@
+# ActionHub
+
 O ActionHub é um gerenciador de tarefas simples e intuitivo.
 Ele permite que usuários se registrem, façam login e gerenciem suas tarefas pessoais com prioridade (baixa, normal, alta).
-O objetivo é oferecer uma aplicação prática para organização diária, fazendo uso de conceitos adquiridos em sala de aula
-e um pouco alem.
+O objetivo é oferecer uma aplicação prática para organização diária, fazendo uso de conceitos adquiridos em sala de aula e um pouco além.
 Construída com boas práticas de desenvolvimento web.
 
-Tecnologias utilizadas
-Python 3.10+
+## Tecnologias Utilizadas
 
-Flask (framework web)
+- **Python 3.10+**
+- **Flask** (framework web)
+- **SQLAlchemy** (ORM para banco de dados)
+- **Marshmallow** (serialização/validação)
+- **Flask-Login** (autenticação de usuários)
+- **SQLite** (banco de dados local)
+- **bcrypt** (hash de senhas)
+- **HTML + Jinja2** (templates)
+- **CSS** (estilização)
 
-SQLAlchemy (ORM para banco de dados)
+## Como Executar na Sua Máquina
 
-Marshmallow (serialização/validação)
-
-Flask-Login (autenticação de usuários)
-
-SQLite (banco de dados local)
-
-bcrypt (hash de senhas)
-
-HTML + Jinja2 (templates)
-
-CSS (estilização)
-
-Como executar na sua máquina
-1
-Clonar o repositório
+### Clonar o Repositório
 Baixe o código do projeto para sua máquina.
 
-Abra o terminal
-
-Rode 
-```
+```bash
 git clone https://github.com/kuandry/actionhub.git
+cd actionhub
 ```
-Entre na pasta cd actionhub
 
-2
-Criar ambiente virtual
+### Criar Ambiente Virtual
 Isolar dependências do projeto.
 
-Rode 
-```
+```bash
 python -m venv venv
 ```
 
-Ative com source no windows
-```
+**Ativar no Windows:**
+```bash
 source venv/Scripts/activate
 ```
-Ou para linux ou mac
-```
+
+**Ativar no Linux/Mac:**
+```bash
 source venv/bin/activate
 ```
-3
-Instalar dependências
+
+### Instalar Dependências
 Instale todas as bibliotecas necessárias.
 
-Com venv ativo, rode 
-```
+```bash
 pip install -r requirements.txt
 ```
-4
-Inicializar banco de dados
+
+### Inicializar Banco de Dados
 Crie o banco SQLite com as tabelas.
 
-Rode 
-```
+```bash
 python init_db.py
 ```
-Verifique se instance/database.db foi criado
 
-5
-Rodar aplicação
+Verifique se `instance/database.db` foi criado.
+
+### Rodar Aplicação
 Inicie o servidor Flask.
-```
+
+```bash
 python app.py
 ```
-Acesse http://127.0.0.1:5000 no navegador
 
- Funcionalidades
-Cadastro e login de usuários
+Acesse [http://127.0.0.1:5000](http://127.0.0.1:5000) no navegador.
 
-Criação, edição e exclusão de tarefas
+## Funcionalidades
 
-Definição de prioridade (baixa, normal, alta)
-
-Interface simples com templates Jinja2
-
-Banco SQLite local para persistência
-
+- ✅ Cadastro e login de usuários
+- ✅ Criação, edição e exclusão de tarefas
+- ✅ Definição de prioridade (baixa, normal, alta)
+- ✅ Modal de confirmação para exclusão
+- ✅ Interface moderna com templates Jinja2
+- ✅ Banco SQLite local para persistência
+- ✅ Validação de dados no frontend e backend
+- ✅ Senhas criptografadas com bcrypt
 
 ## Colaboradores
 
@@ -119,14 +108,14 @@ Banco SQLite local para persistência
         <sub><b>Luis Fylipe Lopes da Silva</b></sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://github.com/hiagogabriel2712-tech">
         <img src="https://github.com/hiagogabriel2712-tech.png" width="100px;" alt="Hiago Gabriel"/><br>
         <sub><b>Hiago Gabriel</b></sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <a href="https://github.com/kaua-menezes-dev">
         <img src="https://github.com/kaua-menezes-dev.png" width="100px;" alt="Kawan Menezes"/><br>
@@ -142,4 +131,6 @@ Banco SQLite local para persistência
   </tr>
 </table>
 
+## Licença
 
+Este projeto foi desenvolvido para fins educacionais.
