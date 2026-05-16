@@ -89,3 +89,51 @@ Definição de prioridade (baixa, normal, alta)
 Interface simples com templates Jinja2
 
 Banco SQLite local para persistência
+
+
+## Colaboradores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/natamdossantos6-gif">
+        <img src="https://github.com/natamdossantos6-gif.png" width="100px;" alt="Natan dos Santos"/><br>
+        <sub><b>Natan dos Santos</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Feehf">
+        <img src="https://github.com/Feehf.png" width="100px;" alt="Fernanda Feitosa"/><br>
+        <sub><b>Fernanda Feitosa</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/felphs1003">
+        <img src="https://github.com/felphs1003.png" width="100px;" alt="Luis Felype"/><br>
+        <sub><b>Luis Felype</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/hiagogabriel2712-tech">
+        <img src="https://github.com/hiagogabriel2712-tech.png" width="100px;" alt="Hiago Gabriel"/><br>
+        <sub><b>Hiago Gabriel</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/kaua-menezes-dev">
+        <img src="https://github.com/kaua-menezes-dev.png" width="100px;" alt="Kawan Menezes"/><br>
+        <sub><b>Kawan Menezes</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/nicholasborba">
+        <img src="https://github.com/nicholasborba.png" width="100px;" alt="Nicholas Borba"/><br>
+        <sub><b>Nicholas Borba</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+
