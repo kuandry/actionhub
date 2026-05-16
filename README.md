@@ -96,6 +96,12 @@ Banco SQLite local para persistência
 <table>
   <tr>
     <td align="center">
+      <a href="https://github.com/kuandry">
+        <img src="https://github.com/kuandry.png" width="100px;" alt="Douglas da Silva Santos"/><br>
+        <sub><b>Douglas da Silva Santos</b></sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/natamdossantos6-gif">
         <img src="https://github.com/natamdossantos6-gif.png" width="100px;" alt="Natan dos Santos"/><br>
         <sub><b>Natan dos Santos</b></sub>
@@ -124,7 +130,7 @@ Banco SQLite local para persistência
     <td align="center">
       <a href="https://github.com/kaua-menezes-dev">
         <img src="https://github.com/kaua-menezes-dev.png" width="100px;" alt="Kawan Menezes"/><br>
-        <sub><b>Kawan Menezes</b></sub>
+        <sub><b>Kauã Menezes</b></sub>
       </a>
     </td>
     <td align="center">
