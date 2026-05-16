@@ -28,6 +28,7 @@ from modules.todo_list.models.user import User
 
 @login_manager.user_loader
 def load_user(user_id):
+    """Carrega usuário da sessão para Flask-Login"""
     return db.session.get(User, user_id)
 
 # Registrar blueprints
@@ -40,10 +41,12 @@ app.register_blueprint(user_bp)
 # Routes test
 @app.route('/health')
 def health():
+    """Endpoint de health check"""
     return {"status": "ok"}, 200
 
 @app.route('/')
 def index():
+    """Rota raiz redireciona para login"""
     return render_template('login.html')
 
 if __name__ == '__main__': # Nunca rodar em produção com debug=True

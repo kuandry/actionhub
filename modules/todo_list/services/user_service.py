@@ -11,6 +11,7 @@ from modules.todo_list.repositorys.user_repository import (
 import bcrypt
 
 def create_user(data: dict):
+    """Cria um novo usuário com senha hasheada"""
     schema = UserSchemaPrivate(session=db.session)  # passa a sessão
     user = schema.load(data)  # valida e cria objeto User
     
@@ -21,10 +22,12 @@ def create_user(data: dict):
     return UserSchemaPublic().dump(saved)  # Nunca retornar senha
 
 def list_users():
+    """Lista todos os usuários (sem expor senhas)"""
     users = get_all_users()
     return UserSchemaPublic(many=True).dump(users)
 
 def update_user(user_id: str, data: dict):
+    """Atualiza um usuário existente (hasheia senha se fornecida)"""
     user = get_user_by_id(user_id)
     if not user:
         return None
@@ -37,6 +40,7 @@ def update_user(user_id: str, data: dict):
     return UserSchemaPublic().dump(updated)  # Nunca retornar senha
 
 def remove_user(user_id: str):
+    """Remove um usuário"""
     user = get_user_by_id(user_id)
     if not user:
         return None

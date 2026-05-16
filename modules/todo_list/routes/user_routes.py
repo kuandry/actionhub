@@ -13,6 +13,7 @@ user_bp = Blueprint("user_bp", __name__)
 
 @user_bp.route("/login", methods=["GET", "POST"])
 def login():
+    """Autentica usuário e inicia sessão"""
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -28,6 +29,7 @@ def login():
 
 @user_bp.route("/register", methods=["GET", "POST"])
 def register():
+    """Registra um novo usuário no sistema"""
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -46,5 +48,6 @@ def register():
 @user_bp.route("/logout")
 @login_required
 def logout():
+    """Encerra a sessão do usuário"""
     logout_user()
     return redirect(url_for('user_bp.login'))

@@ -1,3 +1,4 @@
+"""Script para inicializar o banco de dados SQLite"""
 from app import app
 from core.extensions import db
 

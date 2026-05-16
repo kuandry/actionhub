@@ -12,6 +12,7 @@ task_bp = Blueprint("task_bp", __name__, url_prefix="/tasks")
 @task_bp.route("/", methods=["GET"])
 @login_required
 def list_all():
+    """Lista todas as tarefas do usuário autenticado"""
     filters = {"user_id": current_user.id}
     tasks = list_tasks(filters)
     return render_template("todo_list.html", tasks=tasks)
@@ -19,6 +20,7 @@ def list_all():
 @task_bp.route("/create", methods=["POST"])
 @login_required
 def create():
+    """Cria uma nova tarefa para o usuário autenticado"""
     description = request.form.get("description")
     priority = request.form.get("priority", "normal")
     
@@ -37,6 +39,7 @@ def create():
 @task_bp.route("/<string:task_id>/update", methods=["POST"])
 @login_required
 def update(task_id):
+    """Atualiza uma tarefa existente"""
     description = request.form.get("description")
     completed = request.form.get("completed") == "on"
     priority = request.form.get("priority")
@@ -56,6 +59,7 @@ def update(task_id):
 @task_bp.route("/<string:task_id>/delete", methods=["POST"])
 @login_required
 def delete(task_id):
+    """Remove uma tarefa"""
     try:
         remove_task(task_id)
         flash("Tarefa removida!", "success")
