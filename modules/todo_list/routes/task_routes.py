@@ -21,8 +21,17 @@ def list_all():
 @login_required
 def create():
     """Cria uma nova tarefa para o usuário autenticado"""
-    description = request.form.get("description")
+    description = request.form.get("description", "").strip()
     priority = request.form.get("priority", "normal")
+    
+    # Validações básicas
+    if not description:
+        flash("Descrição da tarefa é obrigatória", "error")
+        return redirect(url_for('task_bp.list_all'))
+    
+    if len(description) > 200:
+        flash("Descrição não pode ter mais de 200 caracteres", "error")
+        return redirect(url_for('task_bp.list_all'))
     
     try:
         create_task({
@@ -40,17 +49,26 @@ def create():
 @login_required
 def update(task_id):
     """Atualiza uma tarefa existente"""
-    description = request.form.get("description")
+    description = request.form.get("description", "").strip()
     completed = request.form.get("completed") == "on"
     priority = request.form.get("priority")
     
+    # Validações
+    if not description:
+        flash("Descrição da tarefa não pode estar vazia", "error")
+        return redirect(url_for('task_bp.list_all'))
+    
     try:
-        update_task(task_id, {
+        result = update_task(task_id, {
             "description": description,
             "completed": completed,
             "priority": priority
         })
-        flash("Tarefa atualizada!", "success")
+        
+        if result is None:
+            flash("Tarefa não encontrada", "error")
+        else:
+            flash("Tarefa atualizada!", "success")
     except Exception as e:
         flash(f"Erro ao atualizar: {str(e)}", "error")
     
@@ -61,8 +79,12 @@ def update(task_id):
 def delete(task_id):
     """Remove uma tarefa"""
     try:
-        remove_task(task_id)
-        flash("Tarefa removida!", "success")
+        result = remove_task(task_id)
+        
+        if result is None:
+            flash("Tarefa não encontrada", "error")
+        else:
+            flash("Tarefa removida!", "success")
     except Exception as e:
         flash(f"Erro ao remover: {str(e)}", "error")
     

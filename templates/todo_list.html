@@ -62,7 +62,7 @@
                 </div>
             </form>
 
-            <form method="POST" action="{{ url_for('task_bp.delete', task_id=task.id) }}" class="task-delete">
+            <form method="POST" action="{{ url_for('task_bp.delete', task_id=task.id) }}" class="task-delete" onsubmit="return confirmDelete(event, '{{ task.description }}')">
                 <button type="submit" class="icon-btn btn-delete" title="Excluir tarefa">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -80,4 +80,51 @@
         {% endif %}
     </div>
 </div>
+
+<!-- Modal de Confirmação -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <h3>Confirmar Exclusão</h3>
+        <p>Tem certeza que deseja excluir a tarefa:</p>
+        <p class="task-to-delete"></p>
+        <div class="modal-actions">
+            <button onclick="closeModal()" class="btn-cancel">Cancelar</button>
+            <button onclick="confirmDeleteAction()" class="btn-confirm">Excluir</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let formToSubmit = null;
+
+function confirmDelete(event, taskDescription) {
+    event.preventDefault();
+    formToSubmit = event.target;
+    
+    document.querySelector('.task-to-delete').textContent = `"${taskDescription}"`;
+    document.getElementById('deleteModal').style.display = 'flex';
+    
+    return false;
+}
+
+function closeModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+    formToSubmit = null;
+}
+
+function confirmDeleteAction() {
+    if (formToSubmit) {
+        formToSubmit.submit();
+    }
+    closeModal();
+}
+
+// Fecha modal ao clicar fora
+window.onclick = function(event) {
+    const modal = document.getElementById('deleteModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+</script>
 {% endblock %}

@@ -31,8 +31,25 @@ def login():
 def register():
     """Registra um novo usuário no sistema"""
     if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "")
+        
+        # Validações básicas no backend
+        if not username:
+            flash("Username é obrigatório", "error")
+            return render_template("register.html")
+        
+        if len(username) < 3:
+            flash("Username deve ter no mínimo 3 caracteres", "error")
+            return render_template("register.html")
+        
+        if not password:
+            flash("Senha é obrigatória", "error")
+            return render_template("register.html")
+        
+        if len(password) < 6:
+            flash("Senha deve ter no mínimo 6 caracteres", "error")
+            return render_template("register.html")
         
         try:
             create_user({"username": username, "password": password})
